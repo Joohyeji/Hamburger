@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <style>
+        .burgerCont{
+            width: 30%;
+            padding-top: 30px;
+        }
+        img{
+            width: 100%;
+        }
+        video{
+            width: 100%;
+            cursor: pointer;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .Cont{
+            display: flex;
+             box-sizing: border-box;
+            justify-content: space-evenly;
+        }
+        .text{
+            width: 33%;
+            position: relative;
+        }
+        span{
+            font-family: 'Climate Crisis', cursive;
+            font-size: 6rem;}
+        .disc1{
+            position: absolute; bottom: 0;
+        }
+        #clickto{
+            position: absolute; right: 0;bottom: 0;
+        }
+        #eat:hover{
+            font-size: 6rem;
+            transition: all 1s;  
+        }
+        #eat{
+            color: red;
+            font-size: 5rem;
+            cursor: pointer;
+            position: absolute; bottom: 0; right: 0;
+        }
+        .buttonCont{
+            position: absolute; left:0; bottom:0;
+        }
+        button{
+            width: 50px;
+            background-color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+        button:hover{
+            color: red;
+            border-color: red;
+
+        }
+        p{
+            font-family: 'Climate Crisis', cursive;
+font-family: 'Tiro Devanagari Sanskrit', serif;
+        }
+
+        .banner{
+            width: 100%;
+            height: 23px;
+            background-color: black;
+            color: white;
+            display: block;
+            position: absolute;
+  overflow: hidden;}
+  .content{
+    font-size: 12px;
+  }
+
+  .banner .track{
+    position: absolute; white-space: nowrap;will-change: transform;animation: marquee 60s linear infinite;
+  }
+  @keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+        .text2{margin-top: 30px;}
+
+        #ate{
+            display: none;
+            position: absolute; right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="track">
+          <div class="content">Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world</div>
+        </div>
+      </div>
+    <div class="Cont">
+        <div class="text">
+            <p>
+                <span>(A Ham<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbur<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspger)</span>
+            </p>    
+            <p>
+                is a sandwich consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll. Hamburgers are often served with cheese, lettuce, tomato, onion, pickles, bacon, or chilis; condiments such as ketchup, mustard, mayonnaise, relish, or a "special sauce", often a variation of Thousand Island dressing; and are frequently placed on sesame seed buns. A hamburger patty topped with cheese is called a cheeseburger.
+            </p>
+            <!-- <div class="buttonCont"> 
+            <button type="button">+</button>
+            <button type="button">-</button>
+        </div> -->
+        </div>
+        <div class="burgerCont">
+            <img src='./media/topbun.png'></img>
+            <video src='./media/ingredients.mp4' muted autoplay loop="true" class="ingredients"></video>
+            <video src='./media/ingredients.mp4' muted autoplay loop="true" class="ingredients"></video>
+            <video src='./media/ingredients.mp4' muted autoplay loop="true" class="ingredients"></video>
+            <video src='./media/ingredients.mp4' muted autoplay loop="true" class="ingredients"></video>
+            <video src='./media/ingredients.mp4' muted autoplay loop="true" class="ingredients"></video>
+            <img src='./media/bottombun.png'></img>
+        </div>
+        <div class="text text2">
+           <p id="ate">You ate <span id="ateNum"></span>Burgers</p>
+            <p id="clickto"><span id="eat">EAT!</span></p>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="track">
+          <div class="content">Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world&nbsp;Hamburgers are the most perfect food in the world</div>
+        </div>
+      </div>
+    
+
+    <script>
+        let audio = new Audio("./media/mcdonalds-drip.mp3");
+        audio.autoplay = true;
+        audio.loop = true;
+
+        let count=0;
+
+        let ingredients = document.querySelectorAll(".ingredients");
+        
+        ingredients.forEach((v,i)=>{
+            let state = 'on';
+            v.addEventListener("click",e=>{
+                e.preventDefault(); 
+                if(state == 'on'){
+                    e.currentTarget.pause();
+                    state = 'off';
+                }else{
+                    e.currentTarget.play();
+                    state = 'on';
+            }
+            });
+        });
+
+        document.querySelector('#eat').addEventListener("click",e=>{
+            ate.style.display='inline';
+            count++;
+            ateNum.innerHTML = count;
+            ingredients.forEach((v,i)=>{
+            v.play();
+        });
+        });
+    </script>
+</body>
+</html>
